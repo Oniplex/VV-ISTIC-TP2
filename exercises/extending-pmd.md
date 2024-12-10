@@ -23,3 +23,38 @@ Use your rule with different projects and describe you findings below. See the [
 
 ## Answer
 
+The rule is designed to identify and flag instances in Java code where there are **three or more nested `if` statements**. Such deep nesting can increase code complexity, making it harder to read, maintain, and debug.
+
+**XPath Expression Used**:
+```xpath
+<rule name="PreventComplexity"
+    language="java"
+    message="Avoid having three or more nested if statements to reduce code complexity."
+    class="net.sourceforge.pmd.lang.rule.xpath.XPathRule">
+
+    <priority>3</priority>
+
+    <properties>
+        <property name="xpath">
+            <value>
+                <![CDATA[//IfStatement[ancestor::IfStatement[ancestor::IfStatement]]]]>
+            </value>
+        </property>
+    </properties>
+</rule>
+```
+**Explanation**:
+- This XPath targets any `IfStatement` node that has an ancestor `IfStatement`, which in turn has another ancestor `IfStatement`. In simpler terms, it looks for `if` statements nested within two other `if` statements, effectively identifying the third level of nesting.
+
+---
+
+### **2. Findings Across Apache Commons Projects**
+
+The custom PMD rule was executed against the following Apache Commons projects, resulting in the detection of violations as detailed below:
+
+| **Project**                     | **Repository Link**                                             | **Violations Detected** |
+|---------------------------------|-----------------------------------------------------------------|-------------------------|
+| **Apache Commons Collections**  | [GitHub Link](https://github.com/apache/commons-collections)    | 93                      |
+| **Apache Commons CLI**          | [GitHub Link](https://github.com/apache/commons-cli)            | 35                      |
+| **Apache Commons Math**         | [GitHub Link](https://github.com/apache/commons-math)           | 339                     |
+| **Apache Commons Lang**         | [GitHub Link](https://github.com/apache/commons-lang)           | 181                     |
