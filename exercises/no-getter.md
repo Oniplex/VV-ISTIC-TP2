@@ -35,7 +35,7 @@ Include in this repository the code of your application. Remove all unnecessary 
 
 Le programme se compose principalement de deux classes :
 
-1. **`Main.java`** : Point d'entrée de l'application. Il configure le processus d'analyse en parcourant récursivement les fichiers sources Java.
+1. **`Main.java`** : Il configure le processus d'analyse en parcourant récursivement les fichiers sources Java.
 
 2. **`NoGetterDetector.java`** : Classe qui étend `VoidVisitorAdapter<Void>` de JavaParser. Elle contient la logique pour :
     - Identifier les classes publiques dans les fichiers sources.
