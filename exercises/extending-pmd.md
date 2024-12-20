@@ -23,10 +23,6 @@ Use your rule with different projects and describe you findings below. See the [
 
 ## Answer
 
-Bien sûr, voici la traduction du compte rendu en français :
-
----
-
 La règle est conçue pour identifier et signaler les instances dans le code Java où **trois instructions `if` imbriquées ou plus** sont présentes. Une telle imbrication peut augmenter la complexité du code, le rendant plus difficile à lire, à maintenir et à déboguer.
 
 **Expression XPath Utilisée** :
